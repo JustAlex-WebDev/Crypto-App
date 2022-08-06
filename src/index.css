@@ -11,13 +11,13 @@
 }
 
 .dark {
-  --color-bg-primary: #212121;
-  --color-bg-secondary: #121212;
-  --color-text-primary: #eeeeee;
+  --color-bg-primary: #121212;
+  --color-bg-secondary: #212121;
+  --color-text-primary: #dad8d8;
   --color-text-secondary: #e0e0e0;
-  --color-text-accent: #e470d4;
-  --color-bg-input: #121212;
-  --color-bg-button: #e470d4;
+  --color-text-accent: #3482d4;
+  --color-bg-input: #212121;
+  --color-bg-button: #3482d4;
 }
 
 .light {
