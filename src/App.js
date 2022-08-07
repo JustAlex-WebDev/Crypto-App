@@ -1,7 +1,8 @@
 import React from "react";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
-  return <div></div>;
+  return <ThemeProvider></ThemeProvider>;
 }
 
 export default App;
