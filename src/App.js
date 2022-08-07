@@ -1,8 +1,13 @@
 import React from "react";
+import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
-  return <ThemeProvider></ThemeProvider>;
+  return (
+    <ThemeProvider>
+      <Navbar />
+    </ThemeProvider>
+  );
 }
 
 export default App;
