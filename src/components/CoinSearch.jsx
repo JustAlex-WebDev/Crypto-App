@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import CoinItem from "./CoinItem";
 
-const CoinSearch = ({ coins }) => {
+const CoinSearch = ({ coins, loading }) => {
   //   console.log(coins);
 
   const [searchText, setSearchText] = useState("");
+
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
 
   return (
     <div className="rounded-div my-4">
