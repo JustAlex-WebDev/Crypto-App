@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import CoinItem from "./CoinItem";
+import Pagination from "../components/Pagination";
 
-const CoinSearch = ({ coins, loading }) => {
+const CoinSearch = ({ coins, loading, coinsPerPage, totalCoins, paginate }) => {
   //   console.log(coins);
 
   const [searchText, setSearchText] = useState("");
 
-  if (loading) {
-    return <h2>Loading...</h2>;
-  }
+  // if (loading) {
+  //   return <h2>Loading...</h2>;
+  // }
 
   return (
     <div className="rounded-div my-4">
@@ -54,6 +55,12 @@ const CoinSearch = ({ coins, loading }) => {
             ))}
         </tbody>
       </table>
+
+      <Pagination
+        coinsPerPage={coinsPerPage}
+        totalCoins={totalCoins}
+        paginate={paginate}
+      />
     </div>
   );
 };
