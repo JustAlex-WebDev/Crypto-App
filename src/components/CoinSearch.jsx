@@ -1,15 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CoinItem from "./CoinItem";
-import Pagination from "../components/Pagination";
+import ReactPaginate from "react-paginate";
 
-const CoinSearch = ({ coins, loading, coinsPerPage, totalCoins, paginate }) => {
+const CoinSearch = ({ coins }) => {
   //   console.log(coins);
 
   const [searchText, setSearchText] = useState("");
 
-  // if (loading) {
-  //   return <h2>Loading...</h2>;
-  // }
+  // Pagination
+  // We start with an empty list of items.
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  // Here we use item offsets; we could also use page offsets
+  // following the API or data you're working with.
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 10;
+
+  useEffect(() => {
+    // Fetch items from another resources.
+    const endOffset = itemOffset + itemsPerPage;
+    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    setCurrentItems(coins.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(coins.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, coins]);
+
+  // Invoke when user click to request another page.
+  const handlePageClick = (e) => {
+    const newOffset = (e.selected * itemsPerPage) % coins.length;
+    // console.log(
+    //   `User requested page number ${e.selected}, which is offset ${newOffset}`
+    // );
+    setItemOffset(newOffset);
+  };
 
   return (
     <div className="rounded-div my-4">
@@ -40,7 +62,7 @@ const CoinSearch = ({ coins, loading, coinsPerPage, totalCoins, paginate }) => {
           </tr>
         </thead>
         <tbody>
-          {coins
+          {currentItems
             .filter((value) => {
               if (searchText === "") {
                 return value;
@@ -56,10 +78,19 @@ const CoinSearch = ({ coins, loading, coinsPerPage, totalCoins, paginate }) => {
         </tbody>
       </table>
 
-      <Pagination
-        coinsPerPage={coinsPerPage}
-        totalCoins={totalCoins}
-        paginate={paginate}
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={3}
+        pageCount={pageCount}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+        containerClassName="list-none flex justify-center items-center my-4 text-base gap-2"
+        pageLinkClassName="p-1 cursor-pointer hover:text-accent"
+        previousLinkClassName="p-1 cursor-pointer"
+        nextLinkClassName="p-1 cursor-pointer"
+        activeLinkClassName="text-accent"
       />
     </div>
   );

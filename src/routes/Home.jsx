@@ -2,16 +2,10 @@ import React from "react";
 import CoinSearch from "../components/CoinSearch";
 import Trending from "../components/Trending";
 
-const Home = ({ coins, loading, coinsPerPage, totalCoins, paginate }) => {
+const Home = ({ coins }) => {
   return (
     <div>
-      <CoinSearch
-        coins={coins}
-        loading={loading}
-        coinsPerPage={coinsPerPage}
-        totalCoins={totalCoins}
-        paginate={paginate}
-      />
+      <CoinSearch coins={coins} />
       <Trending />
     </div>
   );

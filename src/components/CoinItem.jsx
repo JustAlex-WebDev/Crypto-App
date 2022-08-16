@@ -43,7 +43,7 @@ const CoinItem = ({ coin }) => {
       </td>
       <td>
         <Sparklines data={coin.sparkline_in_7d.price}>
-          <SparklinesLine color="teal" />
+          <SparklinesLine color="#2b6db3" />
         </Sparklines>
       </td>
     </tr>
