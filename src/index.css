@@ -12,20 +12,22 @@
 
 .dark {
   --color-bg-primary: #121212;
-  --color-bg-secondary: #212121;
+  --color-bg-secondary: black;
   --color-text-primary: #dad8d8;
   --color-text-secondary: #e0e0e0;
   --color-text-accent: #3482d4;
   --color-bg-input: #212121;
   --color-bg-button: #3482d4;
+  --color-bg-buttonHover: #3171b6;
 }
 
 .light {
   --color-bg-primary: #ffffff;
-  --color-bg-secondary: #e2f2f7;
+  --color-bg-secondary: #fdfdfd;
   --color-text-primary: #2d3748;
   --color-text-secondary: #4a5568;
   --color-text-accent: #2b6cb0;
   --color-bg-input: #edf2f7;
   --color-bg-button: #2b6cb0;
+  --color-bg-buttonHover: #3882d1;
 }
