@@ -22,6 +22,16 @@ module.exports = {
         input: "var(--color-bg-input)",
         accent: "var(--color-text-accent)",
       },
+      animation: {
+        spin: "spin 1s linear infinite",
+        skeleton: "skeleton 3s ease infinite alternate",
+      },
+      keyframes: {
+        skeleton: {
+          "0%, 100%": { opacity: "0.5" },
+          "50%": { opacity: "1" },
+        },
+      },
     },
   },
   plugins: [],
