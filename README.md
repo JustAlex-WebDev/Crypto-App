@@ -6,4 +6,4 @@ This is going to be a multi page REACT JS application, using the CoinGecko API. 
 
 ## Link to the app
 
-[Go to app](https://cryptobase-6294f.web.app/ See the demo)
+[Go to app](https://cryptobase-6294f.web.app/ "See the demo")
